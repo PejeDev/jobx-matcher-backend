@@ -1,2 +1,1 @@
-# jobx-matcher-back-end
-Tinder-like job matching app
+# Jobx Matcher Backend
