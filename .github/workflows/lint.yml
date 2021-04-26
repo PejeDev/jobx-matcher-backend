@@ -1,7 +1,9 @@
 name: Lint
 
-on: push
-
+on:
+  push:
+    branches-ignore:
+      - master
 jobs:
   run-linters:
     name: Run linters
