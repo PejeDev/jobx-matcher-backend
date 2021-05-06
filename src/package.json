@@ -3,7 +3,6 @@
 	"version": "0.0.1",
 	"description": "Torre Technical Test Backend",
 	"main": "server.ts",
-	"type": "module",
 	"author": "Juan Camilo Castañeda Mendez",
 	"license": "MIT",
 	"scripts": {
