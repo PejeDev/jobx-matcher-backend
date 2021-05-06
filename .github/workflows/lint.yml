@@ -3,7 +3,7 @@ name: Lint Check
 on:
   push:
     branches-ignore:
-      - master
+      - main
 jobs:
   run-linters:
     name: Run linters
