@@ -4,6 +4,7 @@ const app = {
 	name: pjson.name,
 	port: parseInt(process.env.PORT, 10),
 	version: pjson.version,
+	selfUrl: process.env.SELF_URL,
 	debug: process.env.DEBUG === 'TRUE',
 	secretKey: process.env.SECRET_KEY,
 	torreApi: process.env.TORRE_API_URL,

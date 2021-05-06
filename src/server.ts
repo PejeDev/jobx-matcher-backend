@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import passport from 'passport';
 
@@ -13,6 +13,10 @@ server.use(cors());
 server.use(express.json());
 
 server.use(passport.initialize());
+
+server.get('/', (req: Request, res: Response) => {
+	res.status(301).redirect(app.selfUrl);
+});
 
 server.use('/api/v1/auth', authRoutes);
 
