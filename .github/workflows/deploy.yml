@@ -27,7 +27,7 @@ jobs:
         with:
           eslint: true
           prettier: true
-          
+
   deploy:
     name: Deploying
     runs-on: ubuntu-latest
