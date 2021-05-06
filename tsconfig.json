@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"lib": ["es6"],
+		"allowSyntheticDefaultImports": true,
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"pretty": true,
+		"resolveJsonModule": true,
+		"esModuleInterop": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": false,
+		"outDir": "dist/",
+		"baseUrl": "src/"
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"]
+}
