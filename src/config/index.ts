@@ -2,5 +2,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-export { default as db } from './database';
-export { default as app } from './app';
+export { default as DatabaseConfig } from './DatabaseConfig';
+export { default as AppConfig } from './AppConfig';
+export { default as ApiConfig } from './ApiConfig';

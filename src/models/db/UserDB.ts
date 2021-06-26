@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
 
-import { db } from '../config/index';
+import { DatabaseConfig as db } from '../../config/Index';
 
-const User = db.define('User', {
+const UserDB = db.define('User', {
 	email: {
 		type: DataTypes.STRING,
 		allowNull: false,
@@ -20,4 +20,4 @@ const User = db.define('User', {
 	}
 });
 
-export default User;
+export default UserDB;

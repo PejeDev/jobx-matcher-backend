@@ -22,8 +22,10 @@
 		"import/extensions": "off",
 		"camelcase": "off",
 		"class-methods-use-this": "off",
+		"import/no-cycle": "off",
 		"import/no-unresolved": "error",
 		"indent": ["error", "tab"],
+		"no-console": ["error", { "allow": ["warn", "error"] }],
 		"object-curly-newline": "off",
 		"no-tabs": ["error", { "allowIndentationTabs": true }]
 	},

@@ -1,33 +1,34 @@
-/* eslint-disable no-console */
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import passport from 'passport';
 
-import { authRoutes, userRoutes, jobRoutes } from './routes/index';
-import { db, app } from './config/index';
-import { authJwt } from './auth/index';
+import { AuthJwt } from './auth/Index';
+import { DatabaseConfig as db, AppConfig as app } from './config/Index';
+import { ClientErrorHandler, ErrorLogger } from './middlewares/Index';
+import { AuthRoutes, UserRoutes, JobRoutes } from './routes/Index';
 
 const server = express();
 
 server.use(cors());
 server.use(express.json());
-
 server.use(passport.initialize());
+server.use(ErrorLogger);
+server.use(ClientErrorHandler);
 
 server.get('/', (req: Request, res: Response) => {
 	res.status(301).redirect(app.selfUrl);
 });
 
-server.use('/api/v1/auth', authRoutes);
+server.use('/api/v1/auth', AuthRoutes);
 
-server.use('/api/v1/user', authJwt, userRoutes);
+server.use('/api/v1/user', AuthJwt, UserRoutes);
 
-server.use('/api/v1/job', authJwt, jobRoutes);
+server.use('/api/v1/job', AuthJwt, JobRoutes);
 
 db.sync()
 	.then(() => {
 		server.listen(app.port, () => {
-			if (app.debug) console.log(app);
+			if (app.debug) console.warn(app);
 		});
 	})
 	.catch((error) => {

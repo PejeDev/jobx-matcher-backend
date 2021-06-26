@@ -1,4 +1,4 @@
-export interface IJob {
+export interface IJobDTO {
 	torreId: string;
 	organization: string;
 	picture: string;

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { app } from '../config';
+import { ApiConfig } from '../config/Index';
 
 class TorreService {
 	private searchClient: AxiosInstance;
@@ -8,12 +8,12 @@ class TorreService {
 
 	constructor() {
 		this.searchClient = axios.create({
-			baseURL: `${app.torreSearchApi}`,
+			baseURL: `${ApiConfig.torreSearchApi}`,
 			withCredentials: true
 		});
 
 		this.torreClient = axios.create({
-			baseURL: `${app.torreApi}`,
+			baseURL: `${ApiConfig.torreApi}`,
 			withCredentials: true
 		});
 	}

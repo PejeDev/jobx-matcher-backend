@@ -1,2 +1,2 @@
-export { default as auth } from './auth';
-export { default as authJwt } from './authJwt';
+export { default as Auth } from '../controllers/AuthController';
+export { default as AuthJwt } from './AuthJwt';

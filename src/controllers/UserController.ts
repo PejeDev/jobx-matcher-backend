@@ -1,14 +1,14 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/index';
-import { IJWT } from '../models/DTO/jwt';
+import { TorreService as api } from '../services/Index';
+import { IJWTDTO } from '../models/DTO/JWTDTO';
 
 class UserController {
 	public async me(req: Request, res: Response) {
 		try {
 			const token = req.headers.authorization.split(' ')[1];
-			const user = jwt.decode(token) as IJWT;
+			const user = jwt.decode(token) as IJWTDTO;
 			const torreBio = await api.getBioInfo(user.torre_user);
 			const profile = torreBio.person;
 			return res.status(200).json(profile);

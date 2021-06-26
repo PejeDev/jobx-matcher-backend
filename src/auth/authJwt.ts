@@ -1,16 +1,16 @@
 import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
-import User from '../models/user';
-import { app } from '../config/index';
+import UserDB from '../models/db/UserDB';
+import { AppConfig } from '../config/Index';
 
 const jwtOpts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: app.secretKey
+	secretOrKey: AppConfig.secretKey
 };
 
 const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
 	try {
-		const user = await User.findAll({ where: { email: payload.email } });
+		const user = await UserDB.findAll({ where: { email: payload.email } });
 		if (user.length) {
 			return done(null, user);
 		}
@@ -24,8 +24,8 @@ const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
 
 passport.use(jwtStrategy);
 
-const authJwt = passport.authenticate('jwt', {
+const AuthJwt = passport.authenticate('jwt', {
 	session: false
 });
 
-export default authJwt;
+export default AuthJwt;

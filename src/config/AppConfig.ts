@@ -1,14 +1,12 @@
 import * as pjson from '../../package.json';
 
-const app = {
+const AppConfig = {
 	name: pjson.name,
 	port: parseInt(process.env.PORT, 10),
 	version: pjson.version,
 	selfUrl: process.env.SELF_URL,
 	debug: process.env.DEBUG === 'TRUE',
-	secretKey: process.env.SECRET_KEY,
-	torreApi: process.env.TORRE_API_URL,
-	torreSearchApi: process.env.TORRE_SEARCH_API_URL
+	secretKey: process.env.SECRET_KEY
 };
 
-export default app;
+export default AppConfig;

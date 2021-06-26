@@ -1,3 +1,3 @@
-export { default as authRoutes } from './auth';
-export { default as jobRoutes } from './job';
-export { default as userRoutes } from './user';
+export { default as AuthRoutes } from './AuthRoutes';
+export { default as JobRoutes } from './JobRoutes';
+export { default as UserRoutes } from './UserRoutes';
