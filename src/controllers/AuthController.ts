@@ -2,10 +2,10 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/Index';
-import { UserDB as db } from '../models/db/Index';
+import { TorreService as api } from '../services/index';
+import { UserDB as db } from '../models/db/index';
 import { IUserDTO } from '../models/DTO/UserDTO';
-import { AppConfig } from '../config/Index';
+import { AppConfig } from '../config/index';
 
 class AuthController {
 	public async register(req: Request, res: Response) {

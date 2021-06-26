@@ -2,8 +2,8 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/Index';
-import { JobDB as db } from '../models/db/Index';
+import { TorreService as api } from '../services/index';
+import { JobDB as db } from '../models/db/index';
 import { IJWTDTO } from '../models/DTO/JWTDTO';
 
 class JobController {

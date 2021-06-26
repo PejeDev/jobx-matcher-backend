@@ -1,7 +1,7 @@
 import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 import UserDB from '../models/db/UserDB';
-import { AppConfig } from '../config/Index';
+import { AppConfig } from '../config/index';
 
 const jwtOpts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -16,7 +16,6 @@ const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
 		}
 		return done(null, false);
 	} catch (error) {
-		// eslint-disable-next-line no-console
 		console.error(error);
 		return done(error, false);
 	}

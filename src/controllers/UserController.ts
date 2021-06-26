@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/Index';
+import { TorreService as api } from '../services/index';
 import { IJWTDTO } from '../models/DTO/JWTDTO';
 
 class UserController {

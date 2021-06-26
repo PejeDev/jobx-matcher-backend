@@ -1,4 +1,4 @@
-import { TorreService as api, TorreService } from 'services/Index';
+import { TorreService as api, TorreService } from './index';
 
 class JobService {
 	// TODO: Migrate logic from Controller to service

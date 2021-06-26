@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import HttpException from '../exceptions/HttpException';
-import { AppConfig as config } from '../config/Index';
+import { AppConfig as config } from '../config/index';
 
 interface IErrorLog {
 	name: string;

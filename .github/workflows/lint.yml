@@ -2,8 +2,8 @@ name: Lint Check
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - "**"
 jobs:
   run-linters:
     name: Run linters

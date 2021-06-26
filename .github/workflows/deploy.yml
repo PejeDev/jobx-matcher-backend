@@ -1,33 +1,10 @@
 name: Deploy to prod
 
-# yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - main
 jobs:
-  run-linters:
-    name: Run linters
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-
-      - name: Install Node.js dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
-          eslint: true
-          prettier: true
-
   deploy:
     name: Deploying to prod
     runs-on: ubuntu-latest

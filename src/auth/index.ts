@@ -1,2 +1,2 @@
-export { default as Auth } from '../controllers/AuthController';
+// eslint-disable-next-line import/prefer-default-export
 export { default as AuthJwt } from './AuthJwt';
