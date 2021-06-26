@@ -28,6 +28,16 @@ jobs:
           eslint: true
           prettier: true
 
+  deploy:
+    name: Deploying to prod
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloning repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Push to production
         uses: dokku/github-action@master
         with:
