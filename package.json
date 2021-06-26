@@ -10,8 +10,8 @@
 		"post-version": "git push --tags && yarn publish . --tag $npm_package_version && git push && echo \"Successfully released version $npm_package_version!\""
 	},
 	"engines": {
-    "node": ">=14.0.0"
-  },
+		"node": ">=14.0.0"
+	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.22.1",
 		"@typescript-eslint/parser": "^4.22.1",
