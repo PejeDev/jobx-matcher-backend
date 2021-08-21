@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import passport from 'passport';
 
-import AuthJwt from './auth/AuthJwt';
+import AuthJwt from './auth/authJwt';
 import { DatabaseConfig as db, AppConfig as app } from './config/index';
 import ClientErrorHandler from './middlewares/ClientErrorHandler';
 import ErrorLogger from './middlewares/ErrorLogger';
