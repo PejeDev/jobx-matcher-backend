@@ -2,12 +2,11 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/index';
-import { UserDB as db } from '../models/db/index';
-import { IUserDTO } from '../models/DTO/UserDTO';
-import { AppConfig } from '../config/index';
+import { TorreService as api } from '../services/torre';
+import { UserDB as db } from '../models/db/user';
+import { UserDTO } from '../models/DTO/user';
 
-class AuthController {
+export class AuthController {
 	public async register(req: Request, res: Response) {
 		try {
 			const { email, password, torre_user } = req.body;
@@ -21,7 +20,7 @@ class AuthController {
 			const salt = await bcrypt.genSalt(10);
 			const hash = await bcrypt.hash(newUser.password, salt);
 			newUser.password = hash;
-			const response = (await db.create(newUser)) as unknown as IUserDTO;
+			const response = ((await db.create(newUser)) as unknown) as UserDTO;
 			response.password = undefined;
 			return res.status(200).json({ data: response });
 		} catch (e) {
@@ -35,7 +34,7 @@ class AuthController {
 			const { email, password } = req.body;
 			const user = (await db.findAll({
 				where: { email }
-			})) as unknown as [IUserDTO];
+			})) as unknown as [UserDTO];
 			if (!user.length) {
 				throw new Error("The user account doesn't exists!");
 			}
@@ -47,7 +46,7 @@ class AuthController {
 				const { id } = user[0];
 				const payload = { id, email, torre_user };
 
-				const token = jwt.sign(payload, AppConfig.secretKey, {
+				const token = jwt.sign(payload, process.env.SECRET_KEY, {
 					expiresIn: 36000
 				});
 				return res.json({
@@ -62,5 +61,3 @@ class AuthController {
 		}
 	}
 }
-
-export default new AuthController();

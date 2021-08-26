@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 
 import { TorreService as api } from '../services/index';
 import { JobDB as db } from '../models/db/index';
-import { IJWTDTO } from '../models/DTO/JWTDTO';
+import { IJWTDTO } from '../models/DTO/jwt';
 
 class JobController {
 	public async getOffers(req: Request, res: Response) {

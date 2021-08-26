@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
 import { TorreService as api } from '../services/index';
-import { IJWTDTO } from '../models/DTO/JWTDTO';
+import { IJWTDTO } from '../models/DTO/jwt';
 
 class UserController {
 	public async me(req: Request, res: Response) {

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
-import HttpException from '../exceptions/HttpException';
-import { AppConfig as config } from '../config/index';
+import { HttpException } from '../exceptions/http';
+import { appConfig as config } from '../config/index';
 
-interface IErrorLog {
+interface ErrorLog {
 	name: string;
 	appVersion: string;
 	debug: boolean;
@@ -12,13 +12,13 @@ interface IErrorLog {
 	trace: string;
 }
 
-function ErrorLogger(
+export function errorLogger(
 	error: HttpException,
 	_request: Request,
 	_response: Response,
 	next: NextFunction
 ) {
-	const log: IErrorLog = {
+	const log: ErrorLog = {
 		name: config.name,
 		appVersion: config.version,
 		debug: config.debug,
@@ -32,5 +32,3 @@ function ErrorLogger(
 
 	next();
 }
-
-export default ErrorLogger;

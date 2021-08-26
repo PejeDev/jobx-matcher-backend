@@ -2,10 +2,10 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import passport from 'passport';
 
-import AuthJwt from './auth/authJwt';
-import { DatabaseConfig as db, AppConfig as app } from './config/index';
-import ClientErrorHandler from './middlewares/ClientErrorHandler';
-import ErrorLogger from './middlewares/ErrorLogger';
+import { AuthJwt } from './auth';
+import { databaseConfig as db, appConfig as app } from './config';
+import { clientErrorHandler } from './middlewares/clientErrorHandler';
+import { errorLogger } from './middlewares/errorLogger';
 import { AuthRoutes, UserRoutes, JobRoutes } from './routes/index';
 
 const server = express();
@@ -13,8 +13,8 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 server.use(passport.initialize());
-server.use(ErrorLogger);
-server.use(ClientErrorHandler);
+server.use(errorLogger);
+server.use(clientErrorHandler);
 
 server.get('/', (req: Request, res: Response) => {
 	res.status(301).redirect(app.selfUrl);

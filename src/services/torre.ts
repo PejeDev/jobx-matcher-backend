@@ -1,19 +1,19 @@
 import axios, { AxiosInstance } from 'axios';
-import { ApiConfig } from '../config/index';
+import { apiConfig } from '../config/index';
 
-class TorreService {
+export class TorreService {
 	private searchClient: AxiosInstance;
 
 	private torreClient: AxiosInstance;
 
 	constructor() {
 		this.searchClient = axios.create({
-			baseURL: `${ApiConfig.torreSearchApi}`,
+			baseURL: `${apiConfig.torreSearchApi}`,
 			withCredentials: true
 		});
 
 		this.torreClient = axios.create({
-			baseURL: `${ApiConfig.torreApi}`,
+			baseURL: `${apiConfig.torreApi}`,
 			withCredentials: true
 		});
 	}
@@ -47,5 +47,3 @@ class TorreService {
 		}
 	}
 }
-
-export default new TorreService();

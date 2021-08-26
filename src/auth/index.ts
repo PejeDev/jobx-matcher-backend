@@ -1,11 +1,10 @@
 import passport from 'passport';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
-import UserDB from '../models/db/UserDB';
-import { AppConfig } from '../config/index';
+import { UserDB } from '../models/db/user';
 
 const jwtOpts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: AppConfig.secretKey
+	secretOrKey: process.env.SECRET_KEY
 };
 
 const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
@@ -23,8 +22,6 @@ const jwtStrategy = new JWTStrategy(jwtOpts, async (payload, done) => {
 
 passport.use(jwtStrategy);
 
-const AuthJwt = passport.authenticate('jwt', {
+export const AuthJwt = passport.authenticate('jwt', {
 	session: false
 });
-
-export default AuthJwt;

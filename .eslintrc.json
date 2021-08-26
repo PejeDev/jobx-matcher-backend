@@ -23,6 +23,7 @@
 		"camelcase": "off",
 		"class-methods-use-this": "off",
 		"import/no-cycle": "off",
+		"import/prefer-default-export": "off",
 		"import/no-unresolved": "error",
 		"indent": ["error", "tab"],
 		"no-console": ["error", { "allow": ["warn", "error"] }],
