@@ -5,7 +5,7 @@ import passport from 'passport';
 import { AppConfig as app, DB as db } from '@/config';
 import { AuthRoutes, JobRoutes, UserRoutes } from '@/routes';
 import { ClientErrorHandler, ErrorLogger } from '@/middlewares';
-import { AuthJwt } from '@/auth/AuthJwt';
+import { AuthJwt } from '@/auth/Auth';
 
 const server = express();
 

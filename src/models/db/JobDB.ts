@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 
-import { DB as db } from '../../config/index';
+import { DB as db } from '@/config/index';
 
 const JobDB = db.define('Job', {
 	torreId: {
