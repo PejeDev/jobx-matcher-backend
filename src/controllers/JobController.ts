@@ -2,16 +2,16 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response } from 'express';
 
-import { TorreService as api } from '../services/index';
-import { JobDB as db } from '../models/db/index';
-import { IJWTDTO } from '../models/DTO/JWTDTO';
+import { TorreService as api } from '@/services';
+import { JobDB as db } from '@/models/db';
+import { JWTDTO } from '@/models/DTO';
 
 class JobController {
 	public async getOffers(req: Request, res: Response) {
 		try {
 			const token = req.headers.authorization.split(' ')[1];
 			const offset = parseInt(req.params.offset, 10) || 0;
-			const user = jwt.decode(token) as IJWTDTO;
+			const user = jwt.decode(token) as JWTDTO;
 			const jobs = await api.jobSearch(offset, user.torre_user);
 			const offers = jobs.results;
 			return res.status(200).json(offers);
@@ -23,7 +23,7 @@ class JobController {
 	public async getAllOffers(req: Request, res: Response) {
 		try {
 			const token = req.headers.authorization.split(' ')[1];
-			const user = jwt.decode(token) as IJWTDTO;
+			const user = jwt.decode(token) as JWTDTO;
 			console.log(user);
 			const { email } = user;
 			const jobs = await db.findAll({ where: { email } });
@@ -37,7 +37,7 @@ class JobController {
 	public async saveOffers(req: Request, res: Response) {
 		try {
 			const token = req.headers.authorization.split(' ')[1];
-			const user = jwt.decode(token) as IJWTDTO;
+			const user = jwt.decode(token) as JWTDTO;
 			const { email } = user;
 			const { id, compensation, skills, objective } = req.body;
 

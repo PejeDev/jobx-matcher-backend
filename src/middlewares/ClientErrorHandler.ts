@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import HttpException from '../exceptions/HttpException';
+import { HttpException } from '@/exceptions';
 
 function ClientErrorHandler(
 	error: HttpException,
@@ -16,4 +16,4 @@ function ClientErrorHandler(
 	});
 }
 
-export default ClientErrorHandler;
+export { ClientErrorHandler };

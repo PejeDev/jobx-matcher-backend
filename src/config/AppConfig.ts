@@ -9,4 +9,4 @@ const AppConfig = {
 	secretKey: process.env.SECRET_KEY
 };
 
-export default AppConfig;
+export { AppConfig };

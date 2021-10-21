@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
-
-import { DatabaseConfig as db } from '../../config/index';
+import { DB as db } from '@/config/DatabaseConfig';
 
 const UserDB = db.define('User', {
 	email: {
@@ -20,4 +19,4 @@ const UserDB = db.define('User', {
 	}
 });
 
-export default UserDB;
+export { UserDB };

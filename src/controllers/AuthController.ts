@@ -1,11 +1,10 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { AppConfig } from '@/config/';
+import { UserDTO } from '@/models/DTO';
 import { Request, Response } from 'express';
-
-import { TorreService as api } from '../services/index';
-import { UserDB as db } from '../models/db/index';
-import { IUserDTO } from '../models/DTO/UserDTO';
-import { AppConfig } from '../config/index';
+import { TorreService as api } from '@/services';
+import { UserDB as db } from '@/models/db';
 
 class AuthController {
 	public async register(req: Request, res: Response) {
@@ -21,7 +20,7 @@ class AuthController {
 			const salt = await bcrypt.genSalt(10);
 			const hash = await bcrypt.hash(newUser.password, salt);
 			newUser.password = hash;
-			const response = (await db.create(newUser)) as unknown as IUserDTO;
+			const response = ((await db.create(newUser)) as unknown) as UserDTO;
 			response.password = undefined;
 			return res.status(200).json({ data: response });
 		} catch (e) {
@@ -33,9 +32,9 @@ class AuthController {
 	public async login(req: Request, res: Response) {
 		try {
 			const { email, password } = req.body;
-			const user = (await db.findAll({
+			const user = ((await db.findAll({
 				where: { email }
-			})) as unknown as [IUserDTO];
+			})) as unknown) as [UserDTO];
 			if (!user.length) {
 				throw new Error("The user account doesn't exists!");
 			}

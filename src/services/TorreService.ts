@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { ApiConfig } from '../config/index';
+import { ApiConfig } from '@/config';
 
 class TorreService {
 	private searchClient: AxiosInstance;

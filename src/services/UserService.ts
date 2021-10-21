@@ -1,4 +1,4 @@
-import { TorreService as api, TorreService } from './index';
+import { TorreService as api, TorreService } from '@/services';
 
 class UserService {
 	private apiClient: typeof TorreService;

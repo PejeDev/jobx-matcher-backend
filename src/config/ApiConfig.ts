@@ -3,4 +3,4 @@ const ApiConfig = {
 	torreSearchApi: process.env.TORRE_SEARCH_API_URL
 };
 
-export default ApiConfig;
+export { ApiConfig };

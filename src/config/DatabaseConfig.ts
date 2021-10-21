@@ -16,11 +16,11 @@ const config = {
 	}
 };
 
-const DatabaseConfig = new Sequelize(
+const DB = new Sequelize(
 	config.database,
 	config.username,
 	config.password,
 	config
 );
 
-export default DatabaseConfig;
+export { DB };

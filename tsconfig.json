@@ -1,4 +1,8 @@
 {
+	"ts-node": {
+		// Do not forget to `npm i -D tsconfig-paths`
+		"require": ["tsconfig-paths/register"]
+	},
 	"compilerOptions": {
 		"target": "es6",
 		"moduleResolution": "node",
@@ -9,12 +13,16 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"pretty": true,
+		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"noImplicitAny": true,
 		"noImplicitReturns": false,
 		"outDir": "dist/",
-		"baseUrl": "src/"
+		"baseUrl": "src/",
+		"paths": {
+			"@/*": ["./*"]
+		}
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules"]

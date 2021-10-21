@@ -1,7 +1,7 @@
 import passport from 'passport';
-import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
-import UserDB from '../models/db/UserDB';
-import { AppConfig } from '../config/index';
+import { AppConfig } from '@/config/AppConfig';
+import { ExtractJwt, Strategy as JWTStrategy } from 'passport-jwt';
+import { UserDB } from '@/models/db/UserDB';
 
 const jwtOpts = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -27,4 +27,4 @@ const AuthJwt = passport.authenticate('jwt', {
 	session: false
 });
 
-export default AuthJwt;
+export { AuthJwt };

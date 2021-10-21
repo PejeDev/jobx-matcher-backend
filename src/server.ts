@@ -1,12 +1,11 @@
-import express, { Request, Response } from 'express';
 import cors from 'cors';
+import express, { Request, Response } from 'express';
 import passport from 'passport';
 
-import AuthJwt from './auth/authJwt';
-import { DatabaseConfig as db, AppConfig as app } from './config/index';
-import ClientErrorHandler from './middlewares/ClientErrorHandler';
-import ErrorLogger from './middlewares/ErrorLogger';
-import { AuthRoutes, UserRoutes, JobRoutes } from './routes/index';
+import { AppConfig as app, DB as db } from '@/config';
+import { AuthRoutes, JobRoutes, UserRoutes } from '@/routes';
+import { ClientErrorHandler, ErrorLogger } from '@/middlewares';
+import { AuthJwt } from '@/auth/AuthJwt';
 
 const server = express();
 

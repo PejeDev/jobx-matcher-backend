@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 
-import { DatabaseConfig as db } from '../../config/index';
+import { DB as db } from '../../config/index';
 
 const JobDB = db.define('Job', {
 	torreId: {
@@ -32,4 +32,4 @@ const JobDB = db.define('Job', {
 	}
 });
 
-export default JobDB;
+export { JobDB };
