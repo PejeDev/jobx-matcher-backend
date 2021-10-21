@@ -1,1 +1,1 @@
-web: yarn start
+web: yarn ts-node -r tsconfig-paths/register src/Server.ts
