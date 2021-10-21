@@ -20,7 +20,7 @@ jobs:
           node-version: 14
 
       - name: Install Node.js dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
