@@ -19,6 +19,10 @@ server.get('/', (req: Request, res: Response) => {
 	res.status(301).redirect(app.selfUrl);
 });
 
+server.get('/api/health', (req: Request, res: Response) => {
+	res.send('OK');
+});
+
 server.use('/api/v1/auth', AuthRoutes);
 
 server.use('/api/v1/user', AuthJwt, UserRoutes);
