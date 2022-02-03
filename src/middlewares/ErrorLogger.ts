@@ -17,7 +17,7 @@ function ErrorLogger(
 	_request: Request,
 	_response: Response,
 	next: NextFunction
-) {
+): void  {
 	const log: IErrorLog = {
 		name: config.name,
 		appVersion: config.version,
