@@ -20,7 +20,7 @@ class AuthController {
 			const salt = await bcrypt.genSalt(10);
 			const hash = await bcrypt.hash(newUser.password, salt);
 			newUser.password = hash;
-			const response = ((await db.create(newUser)) as unknown) as UserDTO;
+			const response = (await db.create(newUser)) as unknown as UserDTO;
 			response.password = undefined;
 			return res.status(200).json({ data: response });
 		} catch (e) {
@@ -32,9 +32,9 @@ class AuthController {
 	public async login(req: Request, res: Response) {
 		try {
 			const { email, password } = req.body;
-			const user = ((await db.findAll({
+			const user = (await db.findAll({
 				where: { email }
-			})) as unknown) as [UserDTO];
+			})) as unknown as [UserDTO];
 			if (!user.length) {
 				throw new Error("The user account doesn't exists!");
 			}
